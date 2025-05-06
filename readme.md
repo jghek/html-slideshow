@@ -1,69 +1,69 @@
-# Handleiding: Foto Slideshow
+# User Guide: Photo Slideshow
 
-Deze handleiding legt uit hoe je de slideshow kunt gebruiken om een presentatie van foto's te maken.
+This guide explains how to use the slideshow to create a presentation of photos.
 
-## Overzicht van de Bestanden
+## File Overview
 
-De slideshow bestaat uit drie belangrijke onderdelen:
-- `index.html`: De webpagina die de slideshow weergeeft
-- `get-files.ps1`: Een PowerShell script dat de afbeeldingen scant
-- `files.js`: Een automatisch gegenereerd bestand met de lijst van afbeeldingen
+The slideshow consists of three important components:
+- `index.html`: The webpage that displays the slideshow
+- `get-files.ps1`: A PowerShell script that scans the images
+- `files.js`: An automatically generated file with the list of images
 
-## Hoe te Gebruiken - Afspelen
+## How to Use - Playback
 
 1. Open index.html.
-2. Klik om de slidehow te starten in volledig scherm.
-3. Druk op `ESC` om uit volledig scherm te gaan.
+2. Click to start the slideshow in full screen.
+3. Press `ESC` to exit full screen mode.
  
-## Hoe te Gebruiken - Slide show maken
+## How to Use - Creating a Slideshow
 
-### Stap 1: Plaats je Foto's
-1. Plaats alle JPG-afbeeldingen die je wilt tonen in dezelfde map als deze bestanden. Alleen JPG-bestanden worden ondersteund (zowel `.jpg` als `.JPG` extensies).
+### Step 1: Place Your Photos
+1. Place all JPG images you want to show in the same folder as these files. Only JPG files are supported (both `.jpg` and `.JPG` extensions).
 
-### Stap 2: Genereer de Bestandslijst
-1. Open PowerShell in de map met je afbeeldingen
-2. Voer het script uit door te typen: `.\get-files.ps1`. Afhankelijk van hoe powershell geinstalleerd is kan je ook in de verkenner rechts op `get-files.ps1` klikken en kiezen voor *Uitvoeren in PowerShell...*
-3. Het script scant alle JPG-bestanden in de map en sorteert ze alfabetisch
-4. Het script maakt een nieuw bestand `files.js` met de lijst van alle gevonden afbeeldingen
+### Step 2: Generate the File List
+1. Open PowerShell in the folder with your images
+2. Run the script by typing: `.\get-files.ps1`. Depending on how PowerShell is installed, you can also right-click on `get-files.ps1` in File Explorer and choose *Run with PowerShell...*
+3. The script scans all JPG files in the folder and sorts them alphabetically
+4. The script creates a new file `files.js` with the list of all found images
 
-### Stap 3: Start de Slideshow
-1. Open `index.html` in een webbrowser
-2. Klik op "Klik om te starten" om de slideshow te beginnen
-3. De slideshow gaat automatisch in volledig scherm en toont de afbeeldingen
+### Step 3: Start the Slideshow
+1. Open `index.html` in a web browser
+2. Click on "Click to start" to begin the slideshow
+3. The slideshow automatically goes into full screen mode and displays the images
 
-## Instellingen Aanpassen
+## Customizing Settings
 
-Je kunt verschillende aspecten van de slideshow aanpassen door `index.html` te bewerken:
+You can adjust various aspects of the slideshow by editing `index.html`:
 
-### Tijd tussen Afbeeldingen
-Open `index.html` en zoek naar:
+### Time Between Images
+Open `index.html` and look for:
 ```javascript
 // Tijd tussen afbeeldingen (in milliseconden)
 const SLIDE_DURATION = 8000;
 ```
-Verander het getal `8000` (8 seconden) naar het gewenste aantal milliseconden.
+Change the number `8000` (8 seconds) to the desired number of milliseconds.
 
-### Achtergrondkleur
-Om de achtergrondkleur aan te passen, zoek naar:
+### Background Color
+To adjust the background color, look for:
 ```javascript
 // Achtergrond kleur
 document.documentElement.style.setProperty('--bg-color', '#222');
 ```
-Verander `#222` naar een andere kleurcode. Bijvoorbeeld `#000` voor zwart of `#fff` voor wit,
-of gebruik een 6-cijferige kleurcode. Voor meer info zie: [https://htmlcolorcodes.com](https://htmlcolorcodes.com).
+Change `#222` to another color code. For example, `#000` for black or `#fff` for white,
+or use a 6-digit color code. For more information see: [https://htmlcolorcodes.com](https://htmlcolorcodes.com).
 
-### Herhalen van de Slideshow
-Om in te stellen of de slideshow moet herhalen of stoppen na de laatste afbeelding:
+### Repeating the Slideshow
+To set whether the slideshow should repeat or stop after the last image:
 ```javascript
 // Herstarten wanneer klaar (true = ja, false = nee)
 const REPEAT_SLIDESHOW = true;
 ```
-Verander `true` naar `false` om de slideshow te laten stoppen na de laatste afbeelding.
+Change `true` to `false` to make the slideshow stop after the last image.
 
 ## Tips
-- De slideshow toont afbeeldingen in alfabetische volgorde van bestandsnamen
-- Als je een specifieke volgorde wilt, kun je je bestanden hernoemen (bijv. 01.jpg, 02.jpg, etc.)
-- Je kunt op ESC drukken om de volledig scherm modus te verlaten
+- The slideshow displays images in alphabetical order of filenames
+- If you want a specific order, you can rename your files (e.g., 01.jpg, 02.jpg, etc.)
+- You can press ESC to exit full screen mode
 
-## Auteur
-Gemaakt door: J.G. Hek - [jangeert@jangeert.nl](mailto:jangeert@jangeert.nl) - [github](https://github.com/jghek)
+## Author
+Created by: J.G. Hek - [jangeert@jangeert.nl](mailto:jangeert@jangeert.nl) - [github](https://github.com/jghek)
