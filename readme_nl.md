@@ -66,4 +66,4 @@ Verander `true` naar `false` om de slideshow te laten stoppen na de laatste afbe
 - Je kunt op ESC drukken om de volledig scherm modus te verlaten
 
 ## Auteur
-Gemaakt door: J.G. Hek - [jangeert@jangeert.nl](mailto:jangeert@jangeert.nl) - [github](https://github.com/jghek)
+Gemaakt door: J.G. Hek - [jangeert@jangeert.nl](mailto:jangeert@jangeert.nl) - [github](https://github.com/jghek/html-slideshow)
