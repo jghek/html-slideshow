@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- Slide show HTML, door J.G. Hek, jangeert@jangeert.nl -->
+<!-- Instelling kunnen hieronder gemaakt worden.          -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fia De Waal † 1 mei 2025</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
+      background-color: var(--bg-color);
+    }
+    #slideshow {
+      width: 100%;
+      height: 100%;
+      display: none; /* Hidden until started */
+      justify-content: center;
+      align-items: center;
+      background-color: var(--bg-color);
+    }
+    #startOverlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000c;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      cursor: pointer;
+      text-align: center;
+      font-family: sans-serif;
+    }
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  </style>
+
+  <!-- Hier instellen -->
+  <script>
+    // Achtergrond kleur
+    document.documentElement.style.setProperty('--bg-color', '#222');
+
+    // Tijd tussen afbeeldingen (in milliseconden)
+    const SLIDE_DURATION = 8000;
+
+    // Herstarten wanneer klaar (true = ja, false = nee)
+    const REPEAT_SLIDESHOW = true;
+  </script>
+  <script src="files.js"></script>
+</head>
+<body>
+  <div id="startOverlay">Klik om te starten.</div>
+  <div id="slideshow">
+    <img id="slide" src="" alt="Slideshow image">
+  </div>
+
+  <script>
+    let index = 0;
+    const slide = document.getElementById('slide');
+    const slideshow = document.getElementById('slideshow');
+    const overlay = document.getElementById('startOverlay');
+
+    function showNextImage() {
+      if (index < IMAGES.length) {
+        slide.src = IMAGES[index];
+        index++;
+      } else if (REPEAT_SLIDESHOW) {
+        index = 0;
+        slide.src = IMAGES[index++];
+      }
+    }
+
+    function startSlideshow() {
+      // Hide overlay
+      overlay.style.display = 'none';
+      slideshow.style.display = 'flex';
+
+      // Enter fullscreen
+      const elem = document.documentElement;
+      if (elem.requestFullscreen) elem.requestFullscreen();
+      else if (elem.webkitRequestFullscreen) elem.webkitRequestFullscreen(); // Safari
+      else if (elem.msRequestFullscreen) elem.msRequestFullscreen(); // IE11
+
+      // Preload images
+      IMAGES.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+
+      // Start slideshow
+      showNextImage();
+      setInterval(showNextImage, SLIDE_DURATION);
+    }
+
+    overlay.addEventListener('click', startSlideshow);
+  </script>
+</body>
+</html>
