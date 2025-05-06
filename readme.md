@@ -66,4 +66,4 @@ Change `true` to `false` to make the slideshow stop after the last image.
 - You can press ESC to exit full screen mode
 
 ## Author
-Created by: J.G. Hek - [jangeert@jangeert.nl](mailto:jangeert@jangeert.nl) - [github](https://github.com/jghek)
+Created by: J.G. Hek - [jangeert@jangeert.nl](mailto:jangeert@jangeert.nl) - [github](https://github.com/jghek/html-slideshow)
